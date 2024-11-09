@@ -41,6 +41,9 @@
         <h1 id="sum"></h1>
         <h1 id="num"></h1>
         <h1 id="mean"></h1>
+        <div id="table">
+
+        </div>
     </div>
     <script>
         var fun = () => {
@@ -80,8 +83,66 @@
             // console.log(Sf1x1)
             // console.log(Sf1)
             // console.log(mean)
+            var table = document.getElementById("table");
+            table.innerHTML = `
+            <table class="table table-bordered">
+                <thead class="table table-bordered">
+                    <tr>
+                        <th>CI</th>
+                        <th>Frequency(fi)</th>
+                        <th>Xi</th>
+                        <th>fiXi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>${c1.innerHTML}</td>
+                        <td>${f1}</td>
+                        <td>${x1}</td>
+                        <td>${f1*x1}</td>
+                    </tr>
+                    <tr>
+                        <td>${c2.innerHTML}</td>
+                        <td>${f2}</td>
+                        <td>${x2}</td>
+                        <td>${f2*x2}</td>
+                    </tr>
+                    <tr>
+                        <td>${c3.innerHTML}</td>
+                        <td>${f3}</td>
+                        <td>${x3}</td>
+                        <td>${f3*x3}</td>
+                    </tr>
+                    <tr>
+                        <td>${c4.innerHTML}</td>
+                        <td>${f4}</td>
+                        <td>${x4}</td>
+                        <td>${f4*x4}</td>
+                    </tr>
+                    <tr>
+                        <td>${c5.innerHTML}</td>
+                        <td>${f5}</td>
+                        <td>${x5}</td>
+                        <td>${f5*x5}</td>
+                    </tr>
+                    <tr>
+                        <td>${c6.innerHTML}</td>
+                        <td>${f6}</td>
+                        <td>${x6}</td>
+                        <td>${f6*x6}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Σfi = ${Sf1}</td>
+                        <td></td>
+                        <td>ΣfiXi = ${Sf1x1}</td>
+                    </tr>
+                </tbody>
+            </table>
+            `
         }
         setInterval(fun)
+        //window.addEventListener("click",fun)
     </script>
 </body>
 </html>
