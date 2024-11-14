@@ -46,12 +46,24 @@
 
             </table>
         </div>
+        <h1 style="color: red;">Direct Method:</h1>
         <h1 id="sum"></h1>
         <h1 id="num"></h1>
         <h1 id="mean"></h1>
         <div id="table">
 
         </div>
+
+        <h1 style="color: red;">Deviation Method:</h1>
+        <h1 id="sumd"></h1>
+        <h1 id="numd"></h1>
+        <h1 id="meand"></h1>
+        <br><br>
+
+        <h1 style="color: red;">StepDeviation Method:</h1>
+        <h1 id="sumu"></h1>
+        <h1 id="numu"></h1>
+        <h1 id="meanu"></h1>
     </div>
     <script>
         var fun = () => {
@@ -99,8 +111,36 @@
             var x9 = (+c9Arr[1]+ +c9Arr[0])/2
             var x10 = (+c10Arr[1]+ +c10Arr[0])/2
 
+            var a = x3;
+            var h = c2Arr[1] - c2Arr[0]
+
+            var d1 = x1-a;
+            var d2 = x2-a;
+            var d3 = x3-a;
+            var d4 = x4-a;
+            var d5 = x5-a;
+            var d6 = x6-a;
+            var d7 = x7-a;
+            var d8 = x8-a;
+            var d9 = x9-a;
+            var d10 = x10-a;
+
+            var u1 = d1/h;
+            var u2 = d2/h;
+            var u3 = d3/h;
+            var u4 = d4/h;
+            var u5 = d5/h;
+            var u6 = d6/h;
+            var u7 = d7/h;
+            var u8 = d8/h;
+            var u9 = d9/h;
+            var u10 = d10/h;
+            
+
             var Sf1x1 = f1*x1 + f2*x2 + f3*x3 + f4*x4 + f5*x5 + f6*x6 + f7*x7 + f8*x8 + f9*x9 + f10*x10
-            var Sf1 = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9 + f10
+            var Sf1 = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9 + f10;
+            var Sf1d1 = f1*d1 + f2*d2 + f3*d3 + f4*d4 + f5*d5 + f6*d6 + f7*d7 + f8*d8 + f9*d9 + f10*d10
+            var Sf1U1 = f1*u1 + f2*u2 + f3*u3 + f4*u4 + f5*u5 + f6*u6 + f7*u7 + f8*u8 + f9*u9 + f10*u10
             var mean = Sf1x1/Sf1;
             document.getElementById("sum").innerHTML = `Σfixi = ${Sf1x1}`
             document.getElementById("num").innerHTML = `Σfi = ${Sf1}`
@@ -116,7 +156,11 @@
                         <th>CI</th>
                         <th>Frequency(fi)</th>
                         <th>Xi</th>
+                        <th>di=Xi-a</th>
+                        <th>Ui = di/h</th>
                         <th>fiXi</th>
+                        <th>fidi</th>
+                        <th>fiUi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -124,71 +168,123 @@
                         <td>${c1.innerHTML}</td>
                         <td>${f1}</td>
                         <td>${x1}</td>
+                        <td>${d1}</td>
+                        <td>${u1}</td>
                         <td>${f1*x1}</td>
+                        <td>${f1*d1}</td>
+                        <td>${f1*u1}</td>
                     </tr>
                     <tr>
                         <td>${c2.innerHTML}</td>
                         <td>${f2}</td>
                         <td>${x2}</td>
+                        <td>${d2}</td>
+                        <td>${u2}</td>
                         <td>${f2*x2}</td>
+                        <td>${f2*d2}</td>
+                        <td>${f2*u2}</td>
                     </tr>
                     <tr>
                         <td>${c3.innerHTML}</td>
                         <td>${f3}</td>
                         <td>${x3}</td>
+                        <td>${d3}</td>
+                        <td>${u3}</td>
                         <td>${f3*x3}</td>
+                        <td>${f3*d3}</td>
+                        <td>${f3*u3}</td>
                     </tr>
                     <tr>
                         <td>${c4.innerHTML}</td>
                         <td>${f4}</td>
                         <td>${x4}</td>
+                        <td>${d4}</td>
+                        <td>${u4}</td>
                         <td>${f4*x4}</td>
+                        <td>${f4*d4}</td>
+                        <td>${f4*u4}</td>
                     </tr>
                     <tr>
                         <td>${c5.innerHTML}</td>
                         <td>${f5}</td>
                         <td>${x5}</td>
+                        <td>${d5}</td>
+                        <td>${u5}</td>
                         <td>${f5*x5}</td>
+                        <td>${f5*d5}</td>
+                        <td>${f5*u5}</td>
                     </tr>
                     <tr>
                         <td>${c6.innerHTML}</td>
                         <td>${f6}</td>
                         <td>${x6}</td>
+                        <td>${d6}</td>
+                        <td>${u6}</td>
                         <td>${f6*x6}</td>
+                        <td>${f6*d6}</td>
+                        <td>${f6*u6}</td>
                     </tr>
                     <tr>
                         <td>${c7.innerHTML}</td>
                         <td>${f7}</td>
                         <td>${x7}</td>
+                        <td>${d7}</td>
+                        <td>${u7}</td>
                         <td>${f7*x7}</td>
+                        <td>${f7*d7}</td>
+                        <td>${f7*u7}</td>
                     </tr>
                     <tr>
                         <td>${c8.innerHTML}</td>
                         <td>${f8}</td>
                         <td>${x8}</td>
+                        <td>${d8}</td>
+                        <td>${u8}</td>
                         <td>${f8*x8}</td>
+                        <td>${f8*d8}</td>
+                        <td>${f8*u8}</td>
                     </tr>
                     <tr>
                         <td>${c9.innerHTML}</td>
                         <td>${f9}</td>
                         <td>${x9}</td>
+                        <td>${d9}</td>
+                        <td>${u9}</td>
                         <td>${f9*x9}</td>
+                        <td>${f9*d9}</td>
+                        <td>${f9*u9}</td>
                     </tr>
                     <tr>
                         <td>${c10.innerHTML}</td>
                         <td>${f10}</td>
                         <td>${x10}</td>
+                        <td>${d10}</td>
+                        <td>${u10}</td>
                         <td>${f10*x10}</td>
+                        <td>${f10*d10}</td>
+                        <td>${f10*u10}</td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>Σfi = ${Sf1}</td>
                         <td></td>
+                        <td></td>
+                        <td></td>
                         <td>ΣfiXi = ${Sf1x1}</td>
+                        <td>Σfidi = ${Sf1d1}</td>
+                        <td>ΣfiUi = ${Sf1U1}</td>
                     </tr>
                 </tbody>
             </table>
             `
+            document.getElementById("sumd").innerHTML = `Σfidi = ${Sf1d1}`
+            document.getElementById("numd").innerHTML = `Σfi = ${Sf1}`
+            var meanD = a+(Sf1d1/Sf1)
+            document.getElementById("meand").innerHTML = `Mean = A+(Σfidi/Σfi) = ${meanD}`
+            var meanU = a+(Sf1U1/Sf1)*h
+            document.getElementById("sumu").innerHTML = `ΣfiUi = ${Sf1U1}`
+            document.getElementById("numu").innerHTML = `Σfi = ${Sf1}`
+            document.getElementById("meanu").innerHTML = `Mean =A+(ΣfiUi/Σfi)*h = ${meanU}`
         }
         setInterval(fun)
         //window.addEventListener("click",fun)
